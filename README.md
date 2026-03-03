@@ -1,6 +1,7 @@
 # Project 2 Student Hub: Lost in the Scroll
 
-live site: https://donniethurman.github.io/scrollytelling-this-wasnt-on-the-map-donnie/ 
+live site: [https://donniethurman.github.io/scrollytelling-this-wasnt-on-the-map-donnie/lost-in-the-scroll/]
+
 Student-facing repo for final project execution and turn-in.
 
 ## Why This Repo Uses Issues
