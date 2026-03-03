@@ -1,0 +1,30 @@
+:root {
+    --light-orange: #DE9100;
+    --orange-50: #CA6801;
+    --cream-color: #F3E8CF;
+    --dark-green: #283618;
+    --light-green-50: #606C39;
+    --green-30: #6A994E;
+    --green-70: #3E4722;
+    --green-80: #13180A;
+    --grey-90: #353334;
+    --black-00: #000000;
+    --header-font: "Alfa Slab One", cursive;
+    --body-font: "Roboto Serif", serif;
+    --body-font-XS: 15px;
+    --body-font-S: 20px;
+    --body-font-M: 30px;
+    --body-font-L: 45px;   
+    --body-font-XL: 200px;
+    --header-font-M: 75px;
+}
+
+.light-mode {
+    --background-color: var(--cream-color);
+    --text-color-light: var(--black-00);
+}
+
+.dark-mode {
+    --background-color: var(--dark-green);
+    --text-color-dark: var(--cream-color);
+}
