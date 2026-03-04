@@ -234,3 +234,41 @@ ul {
 .closing-sub-text {
     margin-right: 40rem;
 }
+
+/* spacer */
+.spacer {
+    height: 50svh;
+}
+
+.spacer2 {
+    height: 30svh;
+}
+
+/* opening */
+.backpack-svg {
+    position: absolute;
+    top: 2;
+    left: 65%;
+    width: 20rem;
+    height: auto;
+    z-index: -10;
+}
+/* naming things */
+.bush-svg {
+    position: absolute;
+    top: 57;
+    left: 50%;
+    width: 40rem;
+    height: auto;
+    z-index: -10;
+}
+
+/* the memory */
+.rock-svg {
+    position: absolute;
+    top: 1;
+    left: 8%;
+    width: 30rem;
+    height: auto;
+    z-index: -10;
+}
