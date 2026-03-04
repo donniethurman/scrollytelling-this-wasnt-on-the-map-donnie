@@ -183,7 +183,8 @@ h2 {
     font-family: var(--header-font);
     font-size: var(--body-font-L);
     margin: 0;
-    color: var(--text-color);
+    color: var(--cream-color);
+    letter-spacing: 0.05em;
 }
 
 .section-1-content {
@@ -265,8 +266,35 @@ ul {
 #cloud {
     position: relative;
     z-index: -10;
-    opacity: 0.8;
+    opacity: 0.7;
 }
+
+/* listening */
+.listening-icons-row {
+    width: min(60rem, 100%);
+    margin: 7rem auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.listening-sun-svg,
+.listening-boot-svg,
+.listening-arrows-merge-svg {
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+}
+
+.listening-sun-svg {
+    filter: drop-shadow(0 0 0.5rem rgba(222, 145, 0, 0.35));
+}
+
+.section-listening .section-content {
+    margin-top: 18rem;
+}
+
 /* the memory */
 .rock-svg {
     position: absolute;
