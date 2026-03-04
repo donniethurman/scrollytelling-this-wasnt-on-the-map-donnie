@@ -263,8 +263,9 @@ ul {
     z-index: -10;
 }
 #cloud {
-    position: absolute;
+    position: relative;
     z-index: -10;
+    opacity: 0.8;
 }
 /* the memory */
 .rock-svg {
