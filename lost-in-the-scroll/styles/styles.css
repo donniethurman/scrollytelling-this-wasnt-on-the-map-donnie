@@ -262,7 +262,10 @@ ul {
     height: auto;
     z-index: -10;
 }
-
+#cloud {
+    position: absolute;
+    z-index: -10;
+}
 /* the memory */
 .rock-svg {
     position: absolute;
