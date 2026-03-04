@@ -11,6 +11,32 @@ const memorySection = document.querySelector(".section-the-memory");
 const listeningSun = document.querySelector(".listening-sun-svg");
 const listeningBoot = document.querySelector(".listening-boot-svg");
 const listeningArrows = document.querySelector(".listening-arrows-merge-svg");
+const sectionCards = document.querySelectorAll(".section-content");
+
+if (sectionCards.length > 0) {
+	const sectionCardObserver = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+
+				gsap.fromTo(
+					entry.target,
+					{ scale: 0.97 },
+					{ scale: 1, duration: 1.2, ease: "sine.out" }
+				);
+
+				observer.unobserve(entry.target);
+			});
+		},
+		{ threshold: 0.99 }
+	);
+
+	sectionCards.forEach((cardElement) => {
+		sectionCardObserver.observe(cardElement);
+	});
+}
 
 const cloudTween = gsap.fromTo(
 	"#cloud",
