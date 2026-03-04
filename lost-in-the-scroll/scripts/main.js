@@ -12,6 +12,7 @@ const listeningSun = document.querySelector(".listening-sun-svg");
 const listeningBoot = document.querySelector(".listening-boot-svg");
 const listeningArrows = document.querySelector(".listening-arrows-merge-svg");
 const sectionCards = document.querySelectorAll(".section-content");
+const memoryRowItems = document.querySelectorAll(".memory-row-item");
 
 if (sectionCards.length > 0) {
 	const sectionCardObserver = new IntersectionObserver(
@@ -23,8 +24,8 @@ if (sectionCards.length > 0) {
 
 				gsap.fromTo(
 					entry.target,
-					{ scale: 0.97 },
-					{ scale: 1, duration: 1.2, ease: "sine.out" }
+					{ scale: 1 },
+					{ scale: 1.1, duration: 1.2, ease: "sine.out" }
 				);
 
 				observer.unobserve(entry.target);
@@ -56,7 +57,7 @@ if (cloud && switchSection) {
 				observer.unobserve(entry.target);
 			});
 		},
-		{ threshold: 0.45 }
+		{ threshold: .9 }
 	);
 
 	cloudObserver.observe(switchSection);
@@ -251,6 +252,36 @@ if (rock && memorySection) {
 	);
 
 	rockObserver.observe(memorySection);
+}
+
+if (memorySection && memoryRowItems.length > 0) {
+	const memoryRowObserver = new IntersectionObserver(
+		(entries, observer) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+
+				gsap.fromTo(
+					memoryRowItems,
+					{ y: 0 },
+					{
+						y: -22,
+						duration: 0.5,
+						yoyo: true,
+						repeat: 1,
+						stagger: 0.14,
+						ease: "sine.inOut",
+					}
+				);
+
+				observer.unobserve(entry.target);
+			});
+		},
+		{ threshold: 0.45 }
+	);
+
+	memoryRowObserver.observe(memorySection);
 }
 
 
