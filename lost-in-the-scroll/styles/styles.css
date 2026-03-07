@@ -189,7 +189,7 @@ h2 {
 
 .section-1-content {
     color: var(--cream-color);
-    margin-top: 20rem;
+    margin-top: clamp(9rem, 18vh, 14rem);
 }
 
 /* section opening */ 
@@ -319,4 +319,136 @@ ul {
     height: 8.5rem;
     object-fit: contain;
     fill: var(--cream-color);
+}
+
+/* responsive layout */
+@media (max-width: 900px) {
+    section {
+        padding: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    h1 {
+        font-size: clamp(2rem, 8.5vw, 3.3rem);
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+    }
+
+    p {
+        width: 100%;
+        max-width: 65ch;
+    }
+
+    .section-content {
+        width: 100%;
+        padding: clamp(1rem, 4vw, 1.6rem);
+        margin-top: clamp(4rem, 10vw, 7rem);
+        line-height: 1.7;
+    }
+
+    .section-1-content {
+        margin-top: clamp(7rem, 14vh, 10rem);
+    }
+
+    .trail-marker,
+    .trail-marker2 {
+        width: clamp(11rem, 52vw, 16rem);
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .opening-title-text,
+    .closing-title-text,
+    .opening-sub-text,
+    .closing-sub-text {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0.5rem;
+    }
+
+    ul {
+        padding-left: 1rem;
+    }
+
+    .sun-svg {
+        width: clamp(8rem, 30vw, 13rem);
+    }
+
+    .trail-start-svg {
+        width: 170vw;
+        left: 50%;
+        margin-top: 10rem;
+    }
+
+    .trail-svg {
+        width: 185vw;
+        margin-top: 24rem;
+    }
+
+    .backpack-svg,
+    .bush-svg,
+    .rock-svg {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: min(82vw, 20rem);
+        margin: 2rem auto 0;
+        display: block;
+        z-index: -2;
+    }
+
+    .listening-icons-row {
+        margin-top: 4rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .listening-sun-svg,
+    .listening-boot-svg,
+    .listening-arrows-merge-svg {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .memory-icons-row {
+        margin-top: 5rem;
+        gap: 1.2rem;
+    }
+
+    .memory-row-item {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+
+    .spacer,
+    .spacer2 {
+        height: 16svh;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+
+    .section-1-content {
+        margin-top: clamp(6rem, 12vh, 8rem);
+    }
+
+    .trail-start-svg {
+        margin-top: 7rem;
+    }
+
+    .trail-svg {
+        margin-top: 18rem;
+    }
+
+    .listening-sun-svg,
+    .listening-boot-svg,
+    .listening-arrows-merge-svg {
+        width: 4.3rem;
+        height: 4.3rem;
+    }
 }

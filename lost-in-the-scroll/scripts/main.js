@@ -1,5 +1,7 @@
 const cloud = document.querySelector("#cloud");
 const cloudAnimation = document.querySelector(".cloud-animation");
+const heroSection = document.querySelector(".section-hero");
+const heroContent = document.querySelector(".section-1-content");
 const switchSection = document.querySelector(".section-the-switch");
 const bush = document.querySelector(".bush-svg");
 const namingThingsSection = document.querySelector(".section-naming-things");
@@ -14,28 +16,46 @@ const listeningArrows = document.querySelector(".listening-arrows-merge-svg");
 const sectionCards = document.querySelectorAll(".section-content");
 const memoryRowItems = document.querySelectorAll(".memory-row-item");
 
+const hasScrollTrigger = typeof ScrollTrigger !== "undefined";
+
+if (hasScrollTrigger) {
+	gsap.registerPlugin(ScrollTrigger);
+} else {
+	console.warn("ScrollTrigger plugin is not available.");
+}
+
+function createOnceScrollTrigger(triggerElement, startPosition, onEnterCallback) {
+	if (!hasScrollTrigger || !triggerElement) {
+		return;
+	}
+
+	ScrollTrigger.create({
+		trigger: triggerElement,
+		start: startPosition,
+		onEnter: onEnterCallback,
+		once: true,
+	});
+}
+
 if (sectionCards.length > 0) {
-	const sectionCardObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				gsap.fromTo(
-					entry.target,
-					{ scale: 1 },
-					{ scale: 1.1, duration: 1.2, ease: "sine.out" }
-				);
-
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.99 }
-	);
-
 	sectionCards.forEach((cardElement) => {
-		sectionCardObserver.observe(cardElement);
+		createOnceScrollTrigger(cardElement, "top 72%", () => {
+			gsap.fromTo(
+				cardElement,
+				{ scale: 1 },
+				{ scale: 1.1, duration: 1.2, ease: "sine.out" }
+			);
+		});
+	});
+}
+
+if (heroSection && heroContent) {
+	createOnceScrollTrigger(heroSection, "top 99%", () => {
+		gsap.fromTo(
+			heroContent,
+			{ autoAlpha: 0 },
+			{ autoAlpha: 1, duration: 0.8, ease: "sine.out" }
+		);
 	});
 }
 
@@ -46,21 +66,9 @@ const cloudTween = gsap.fromTo(
 );
 
 if (cloud && switchSection) {
-	const cloudObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				cloudTween.restart();
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: .9 }
-	);
-
-	cloudObserver.observe(switchSection);
+	createOnceScrollTrigger(switchSection, "top 82%", () => {
+		cloudTween.restart();
+	});
 }
 
 /* backpack slide animation [ AI helped ] */
@@ -75,21 +83,9 @@ if (backpack && openingSection) {
 		)
 		.to(".backpack-svg", { scale: 1.08, duration: 0.25, ease: "power1.out" });
 
-	const backpackObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				backpackTimeline.restart();
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.35 }
-	);
-
-	backpackObserver.observe(openingSection);
+	createOnceScrollTrigger(openingSection, "top 78%", () => {
+		backpackTimeline.restart();
+	});
 }
 
 /* bush shake animation [ AI helped ] */
@@ -106,21 +102,9 @@ bushShake
 	.to(".bush-svg", { x: 0, duration: 0.08, ease: "power1.out" });
 
 if (bush && namingThingsSection) {
-	const bushObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				bushShake.restart();
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.45 }
-	);
-
-	bushObserver.observe(namingThingsSection);
+	createOnceScrollTrigger(namingThingsSection, "top 76%", () => {
+		bushShake.restart();
+	});
 }
 
 /* listening icon row animation */
@@ -161,21 +145,9 @@ if (listeningSection && listeningSun && listeningBoot && listeningArrows) {
 			0.45
 		);
 
-	const listeningObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				listeningTimeline.restart();
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.4 }
-	);
-
-	listeningObserver.observe(listeningSection);
+	createOnceScrollTrigger(listeningSection, "top 76%", () => {
+		listeningTimeline.restart();
+	});
 }
 
 /* rock shake + gravel fall animation */
@@ -237,51 +209,26 @@ if (rock && memorySection) {
 		.call(() => createGravelBurst(16), null, 0.5)
 		.to(".rock-svg", { x: 0, duration: 0.08, ease: "power1.out" });
 
-	const rockObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				rockTimeline.restart();
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.4 }
-	);
-
-	rockObserver.observe(memorySection);
+	createOnceScrollTrigger(memorySection, "top 74%", () => {
+		rockTimeline.restart();
+	});
 }
 
 if (memorySection && memoryRowItems.length > 0) {
-	const memoryRowObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (!entry.isIntersecting) {
-					return;
-				}
-
-				gsap.fromTo(
-					memoryRowItems,
-					{ y: 0 },
-					{
-						y: -22,
-						duration: 0.5,
-						yoyo: true,
-						repeat: 1,
-						stagger: 0.14,
-						ease: "sine.inOut",
-					}
-				);
-
-				observer.unobserve(entry.target);
-			});
-		},
-		{ threshold: 0.45 }
-	);
-
-	memoryRowObserver.observe(memorySection);
+	createOnceScrollTrigger(memorySection, "top 66%", () => {
+		gsap.fromTo(
+			memoryRowItems,
+			{ y: 0 },
+			{
+				y: -22,
+				duration: 0.5,
+				yoyo: true,
+				repeat: 1,
+				stagger: 0.14,
+				ease: "sine.inOut",
+			}
+		);
+	});
 }
 
 
