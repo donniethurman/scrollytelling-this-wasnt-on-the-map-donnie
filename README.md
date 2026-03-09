@@ -55,3 +55,7 @@ After your repo is created:
 2. Create all required sub-issues from templates.
 3. Link sub-issues back into the master issue.
 4. Use `Blocker Report` if stuck for more than 20 minutes.
+
+## notes:
+- add little grass areas
+- more detail
