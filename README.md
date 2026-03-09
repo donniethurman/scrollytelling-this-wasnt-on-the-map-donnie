@@ -59,3 +59,4 @@ After your repo is created:
 ## notes:
 - add little grass areas
 - more detail
+- accessability 
