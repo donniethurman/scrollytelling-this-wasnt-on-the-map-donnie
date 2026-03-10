@@ -376,43 +376,43 @@ if (hasScrollTrigger && heroSection) {
 		}
 	});
 
-	// Layer 1 (Background): Subtle scale up, staying centered
+	// Layer 1 (Background): Stays still
 	if (document.querySelector(".hero-layer-1")) {
-		heroParallaxTl.to(".hero-layer-1", { scale: 1.1, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-1", { scale: 1, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 
-	// Layer 2 & 3 (Distant mountains/clouds): Scale up slightly more
+	// Layer 2 & 3 (Distant mountains/clouds): Very slight scale
 	if (document.querySelector(".hero-layer-2")) {
-		heroParallaxTl.to(".hero-layer-2", { scale: 1.25, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-2", { scale: 1.05, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 	if (document.querySelector(".hero-layer-3")) {
-		heroParallaxTl.to(".hero-layer-3", { scale: 1.4, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-3", { scale: 1.1, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 
-	// Layer 4 & 5 (Mid ranges): Scale up and start moving out of frame
+	// Layer 4 & 5 (Mid ranges): Moderate scale
 	if (document.querySelector(".hero-layer-4")) {
-		heroParallaxTl.to(".hero-layer-4", { scale: 1.7, y: 100, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-4", { scale: 1.25, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 	if (document.querySelector(".hero-layer-5")) {
-		heroParallaxTl.to(".hero-layer-5", { scale: 2.1, y: 300, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-5", { scale: 1.45, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 
-	// Layer 6 & 7 (Close ranges): Huge scale, moving left/right to clear the center path
+	// Layer 6 & 7 (Close ranges): Large scale, moving down slightly to stay grounded
 	if (document.querySelector(".hero-layer-6")) {
-		heroParallaxTl.to(".hero-layer-6", { scale: 2.6, x: -300, y: 500, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-6", { scale: 1.75, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 	if (document.querySelector(".hero-layer-7")) {
-		heroParallaxTl.to(".hero-layer-7", { scale: 3.2, x: 400, y: 700, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-7", { scale: 2.2, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 
-	// Layer 8 (Immediate foreground left/right): Massive scale, moving far out to open the scene
+	// Layer 8 (Immediate foreground left/right): Massive scale
 	if (document.querySelector(".hero-layer-8")) {
-		heroParallaxTl.to(".hero-layer-8", { scale: 4.5, y: 1000, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".hero-layer-8", { scale: 3, transformOrigin: "50% 100%", ease: "none" }, 0);
 	}
 
-	// Sun SVG
+	// Sun SVG: Move up slightly
 	if (document.querySelector(".sun-svg")) {
-		heroParallaxTl.to(".sun-svg", { scale: 1.2, y: -100, transformOrigin: "50% 50%", ease: "none" }, 0);
+		heroParallaxTl.to(".sun-svg", { y: -50, transformOrigin: "50% 50%", ease: "none" }, 0);
 	}
 }
 
