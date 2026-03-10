@@ -365,34 +365,55 @@ window.addEventListener("resize", () => {
 
 /* Hero Parallax Animation */
 if (hasScrollTrigger && heroSection) {
-	const parallaxLayers = [
-		{ selector: ".hero-layer-1", speed: 1 },    // Back mountain / sky sticks totally still
-		{ selector: ".hero-layer-2", speed: 0.85 }, // Clouds move very little
-		{ selector: ".hero-layer-3", speed: 0.7 },
-		{ selector: ".hero-layer-4", speed: 0.5 },
-		{ selector: ".hero-layer-5", speed: 0.3 },
-		{ selector: ".hero-layer-6", speed: 0.1 },
-		{ selector: ".hero-layer-7", speed: -0.1 }, // Faster than natural scroll
-		{ selector: ".hero-layer-8", speed: -0.3 }, // Front mountain moves up fastest
-		{ selector: ".sun-svg", speed: 0.95 }
-	];
-
-	parallaxLayers.forEach((layer) => {
-		const element = document.querySelector(layer.selector);
-		if (element) {
-			gsap.to(element, {
-				y: () => layer.speed * window.innerHeight,
-				ease: "none",
-				scrollTrigger: {
-					trigger: heroSection,
-					start: "top top",
-					end: "bottom top",
-					scrub: true,
-					invalidateOnRefresh: true
-				}
-			});
+	// A timeline for the entire hero section's scroll
+	const heroParallaxTl = gsap.timeline({
+		scrollTrigger: {
+			trigger: heroSection,
+			start: "top top",
+			end: "bottom top",
+			scrub: true,
+			invalidateOnRefresh: true,
 		}
 	});
+
+	// Layer 1 (Background): Subtle scale up, staying centered
+	if (document.querySelector(".hero-layer-1")) {
+		heroParallaxTl.to(".hero-layer-1", { scale: 1.1, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+
+	// Layer 2 & 3 (Distant mountains/clouds): Scale up slightly more
+	if (document.querySelector(".hero-layer-2")) {
+		heroParallaxTl.to(".hero-layer-2", { scale: 1.25, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+	if (document.querySelector(".hero-layer-3")) {
+		heroParallaxTl.to(".hero-layer-3", { scale: 1.4, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+
+	// Layer 4 & 5 (Mid ranges): Scale up and start moving out of frame
+	if (document.querySelector(".hero-layer-4")) {
+		heroParallaxTl.to(".hero-layer-4", { scale: 1.7, y: 100, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+	if (document.querySelector(".hero-layer-5")) {
+		heroParallaxTl.to(".hero-layer-5", { scale: 2.1, y: 300, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+
+	// Layer 6 & 7 (Close ranges): Huge scale, moving left/right to clear the center path
+	if (document.querySelector(".hero-layer-6")) {
+		heroParallaxTl.to(".hero-layer-6", { scale: 2.6, x: -300, y: 500, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+	if (document.querySelector(".hero-layer-7")) {
+		heroParallaxTl.to(".hero-layer-7", { scale: 3.2, x: 400, y: 700, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+
+	// Layer 8 (Immediate foreground left/right): Massive scale, moving far out to open the scene
+	if (document.querySelector(".hero-layer-8")) {
+		heroParallaxTl.to(".hero-layer-8", { scale: 4.5, y: 1000, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
+
+	// Sun SVG
+	if (document.querySelector(".sun-svg")) {
+		heroParallaxTl.to(".sun-svg", { scale: 1.2, y: -100, transformOrigin: "50% 50%", ease: "none" }, 0);
+	}
 }
 
 /* Chapter Titles Animation */
