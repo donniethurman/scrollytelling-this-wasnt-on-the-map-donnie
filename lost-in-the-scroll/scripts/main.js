@@ -327,3 +327,58 @@ window.addEventListener("resize", () => {
 
 /* animations done without AI help below */
 /* cloud animation */
+
+/* Hero Parallax Animation */
+if (hasScrollTrigger && heroSection) {
+	const parallaxLayers = [
+		{ selector: ".hero-layer-1", speed: 0 },
+		{ selector: ".hero-layer-2", speed: 0.1 },
+		{ selector: ".hero-layer-3", speed: 0.2 },
+		{ selector: ".hero-layer-4", speed: 0.35 },
+		{ selector: ".hero-layer-5", speed: 0.5 },
+		{ selector: ".hero-layer-6", speed: 0.65 },
+		{ selector: ".hero-layer-7", speed: 0.8 },
+		{ selector: ".hero-layer-8", speed: 0.95 },
+		{ selector: ".sun-svg", speed: 1.2 }
+	];
+
+	parallaxLayers.forEach((layer) => {
+		const element = document.querySelector(layer.selector);
+		if (element) {
+			gsap.to(element, {
+				y: () => layer.speed * ScrollTrigger.maxScroll(window),
+				ease: "none",
+				scrollTrigger: {
+					trigger: heroSection,
+					start: "top top",
+					end: "bottom top",
+					scrub: true,
+					invalidateOnRefresh: true
+				}
+			});
+		}
+	});
+}
+
+/* Chapter Titles Animation */
+const chapterTitles = document.querySelectorAll(".chapter-title");
+
+if (hasScrollTrigger && chapterTitles.length > 0) {
+	chapterTitles.forEach((title) => {
+		gsap.fromTo(
+			title,
+			{ y: 50, autoAlpha: 0 },
+			{
+				y: 0,
+				autoAlpha: 1,
+				duration: 1,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: title,
+					start: "top 85%",
+					once: true
+				}
+			}
+		);
+	});
+}
