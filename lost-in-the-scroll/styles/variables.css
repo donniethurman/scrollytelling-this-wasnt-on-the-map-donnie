@@ -14,9 +14,9 @@
     --body-font-XS: 15px;
     --body-font-S: 20px;
     --body-font-M: 30px;
-    --body-font-L: 45px;   
+    --body-font-L: 45px;
     --body-font-XL: 200px;
-    --header-font-M: 75px;
+    --header-font-M: clamp(30px, 4vw, 52px);
 }
 
 .light-mode {
