@@ -366,14 +366,14 @@ window.addEventListener("resize", () => {
 /* Hero Parallax Animation */
 if (hasScrollTrigger && heroSection) {
 	const parallaxLayers = [
-		{ selector: ".hero-layer-1", speed: 1 },    // Back mountain / sky sticks
-		{ selector: ".hero-layer-2", speed: 0.9 },
-		{ selector: ".hero-layer-3", speed: 0.8 },
-		{ selector: ".hero-layer-4", speed: 0.65 },
-		{ selector: ".hero-layer-5", speed: 0.5 },
-		{ selector: ".hero-layer-6", speed: 0.35 },
-		{ selector: ".hero-layer-7", speed: 0.2 },
-		{ selector: ".hero-layer-8", speed: 0 },    // Front mountain scrolls naturally
+		{ selector: ".hero-layer-1", speed: 1 },    // Back mountain / sky sticks totally still
+		{ selector: ".hero-layer-2", speed: 0.85 }, // Clouds move very little
+		{ selector: ".hero-layer-3", speed: 0.7 },
+		{ selector: ".hero-layer-4", speed: 0.5 },
+		{ selector: ".hero-layer-5", speed: 0.3 },
+		{ selector: ".hero-layer-6", speed: 0.1 },
+		{ selector: ".hero-layer-7", speed: -0.1 }, // Faster than natural scroll
+		{ selector: ".hero-layer-8", speed: -0.3 }, // Front mountain moves up fastest
 		{ selector: ".sun-svg", speed: 0.95 }
 	];
 
