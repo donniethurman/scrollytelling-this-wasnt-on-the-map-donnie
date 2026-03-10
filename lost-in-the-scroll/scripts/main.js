@@ -39,13 +39,43 @@ function createOnceScrollTrigger(triggerElement, startPosition, onEnterCallback)
 
 if (sectionCards.length > 0) {
 	sectionCards.forEach((cardElement) => {
+		const paragraph = cardElement.querySelector("p");
+
 		createOnceScrollTrigger(cardElement, "top 72%", () => {
 			gsap.fromTo(
 				cardElement,
 				{ scale: 1 },
 				{ scale: 1.1, duration: 1.2, ease: "sine.out" }
 			);
+			if (paragraph) {
+				gsap.fromTo(
+					paragraph,
+					{ autoAlpha: 0, y: 15 },
+					{ autoAlpha: 1, y: 0, duration: 0.9, delay: 0.2, ease: "power2.out" }
+				);
+			}
 		});
+	});
+}
+
+const allTrailMarkers = document.querySelectorAll(".trail-marker, .trail-marker2");
+if (hasScrollTrigger && allTrailMarkers.length > 0) {
+	allTrailMarkers.forEach((marker) => {
+		gsap.fromTo(
+			marker,
+			{ scale: 0.5, autoAlpha: 0 },
+			{
+				scale: 1,
+				autoAlpha: 1,
+				duration: 0.8,
+				ease: "back.out(1.7)",
+				scrollTrigger: {
+					trigger: marker,
+					start: "top 85%",
+					once: true
+				}
+			}
+		);
 	});
 }
 
@@ -55,6 +85,11 @@ if (heroSection && heroContent) {
 			heroContent,
 			{ autoAlpha: 0 },
 			{ autoAlpha: 1, duration: 0.8, ease: "sine.out" }
+		);
+		gsap.fromTo(
+			"#hero-description",
+			{ autoAlpha: 0, y: 20 },
+			{ autoAlpha: 1, y: 0, duration: 0.8, delay: 0.3, ease: "power2.out" }
 		);
 	});
 }
@@ -331,22 +366,22 @@ window.addEventListener("resize", () => {
 /* Hero Parallax Animation */
 if (hasScrollTrigger && heroSection) {
 	const parallaxLayers = [
-		{ selector: ".hero-layer-1", speed: 0 },
-		{ selector: ".hero-layer-2", speed: 0.1 },
-		{ selector: ".hero-layer-3", speed: 0.2 },
-		{ selector: ".hero-layer-4", speed: 0.35 },
+		{ selector: ".hero-layer-1", speed: 1 },    // Back mountain / sky sticks
+		{ selector: ".hero-layer-2", speed: 0.9 },
+		{ selector: ".hero-layer-3", speed: 0.8 },
+		{ selector: ".hero-layer-4", speed: 0.65 },
 		{ selector: ".hero-layer-5", speed: 0.5 },
-		{ selector: ".hero-layer-6", speed: 0.65 },
-		{ selector: ".hero-layer-7", speed: 0.8 },
-		{ selector: ".hero-layer-8", speed: 0.95 },
-		{ selector: ".sun-svg", speed: 1.2 }
+		{ selector: ".hero-layer-6", speed: 0.35 },
+		{ selector: ".hero-layer-7", speed: 0.2 },
+		{ selector: ".hero-layer-8", speed: 0 },    // Front mountain scrolls naturally
+		{ selector: ".sun-svg", speed: 0.95 }
 	];
 
 	parallaxLayers.forEach((layer) => {
 		const element = document.querySelector(layer.selector);
 		if (element) {
 			gsap.to(element, {
-				y: () => layer.speed * ScrollTrigger.maxScroll(window),
+				y: () => layer.speed * window.innerHeight,
 				ease: "none",
 				scrollTrigger: {
 					trigger: heroSection,
