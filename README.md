@@ -79,3 +79,14 @@ This project, "Lost In The Scroll," is an interactive scrollytelling experience 
 - Add more detail to the assets.
 - Accessibility audit passed.
 - All rubric requirements satisfied.
+
+## Reflection: Lost In The Scroll
+
+### The Metaphor
+This project was an exploration of my own journey learning JavaScript. I chose the hiking metaphor because learning to code often feels like navigating a trail—sometimes the path is clear (HTML/CSS), and sometimes you're staring at a map wondering how you got so lost (JavaScript logic).
+
+### The Process
+Building this site pushed me to understand GSAP and ScrollTrigger on a deeper level. Integrating ScrollSmoother was a key step in moving from a 'functional' site to a 'premium' experience. I learned that motion isn't just about things moving; it's about pacing the story and rewarding the user for their interaction.
+
+### Challenges & Growth
+The biggest challenge was ensuring the site remained accessible while pushing the boundaries of scroll-driven motion. Implementing reduced-motion support and keyboard navigation taught me that "cool" doesn't have to mean "exclusive." Everyone should be able to follow the trail.
