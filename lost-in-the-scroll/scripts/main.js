@@ -46,6 +46,68 @@ function initApp() {
 	initMarkerAnimations();
 	initNarrativeAnimations(prefersReducedMotion);
 	initMarkerReveal();
+	initThemeToggle();
+	initCampfireShowpiece(prefersReducedMotion);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                Theme Toggle                                */
+/* -------------------------------------------------------------------------- */
+
+function initThemeToggle() {
+	const toggleBtn = document.querySelector("#theme-toggle");
+	if (!toggleBtn) return;
+
+	// Load saved theme
+	const savedTheme = localStorage.getItem("theme") || "dark";
+	document.body.classList.add(savedTheme + "-mode");
+
+	toggleBtn.addEventListener("click", () => {
+		const isDark = document.body.classList.contains("dark-mode");
+		const newTheme = isDark ? "light" : "dark";
+
+		document.body.classList.remove(isDark ? "dark-mode" : "light-mode");
+		document.body.classList.add(newTheme + "-mode");
+		localStorage.setItem("theme", newTheme);
+
+		// Animate toggle
+		gsap.fromTo(toggleBtn, 
+			{ rotate: 0 }, 
+			{ rotate: 360, duration: 0.5, ease: "back.out(1.5)" }
+		);
+	});
+}
+
+function initCampfireShowpiece(reducedMotion) {
+	const campfireSection = document.querySelector(".section-campfire");
+	if (!campfireSection || reducedMotion) return;
+
+	const tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: campfireSection,
+			start: "top top",
+			end: "+=2000",
+			scrub: 1,
+			pin: true,
+			anticipatePin: 1
+		}
+	});
+
+	// Animate campfire flicker
+	gsap.to(".campfire-svg", {
+		scale: 1.1,
+		filter: "drop-shadow(0 0 30px #ffaa00)",
+		duration: 0.1,
+		repeat: -1,
+		yoyo: true,
+		ease: "sine.inOut"
+	});
+
+	// Timeline animations
+	tl.from(".campfire-text", { autoAlpha: 0, y: 50, duration: 1 })
+	  .to(".sky-background", { background: "radial-gradient(circle at 50% 100%, #1a0a0a 0%, #000000 100%)", duration: 1 }, "-=0.5")
+	  .to(".campfire-svg", { scale: 1.5, duration: 1 }, "-=0.5")
+	  .to(".campfire-text", { autoAlpha: 0, y: -50, duration: 1, delay: 1 });
 }
 
 /* -------------------------------------------------------------------------- */

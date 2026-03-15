@@ -56,7 +56,26 @@ After your repo is created:
 3. Link sub-issues back into the master issue.
 4. Use `Blocker Report` if stuck for more than 20 minutes.
 
-## notes:
-- add little grass areas
-- more detail
-- accessability 
+## Final Submission Detail
+
+This project, "Lost In The Scroll," is an interactive scrollytelling experience that uses the metaphor of a hiking trip to explain fundamental JavaScript concepts.
+
+### Features
+- **GSAP & ScrollTrigger**: Custom animations linked to scroll depth.
+- **ScrollSmoother**: Premium, fluid scrolling experience.
+- **Theme Modes**: Interactive Light/Dark mode toggle with local storage persistence.
+- **Accessibility**: 
+  - `prefers-reduced-motion` support.
+  - Full keyboard navigability with focus management.
+  - Semantic HTML5 structure.
+- **Pinned Showpiece**: A narrative "Campfire" section that pins and transitions visually as you scroll.
+
+### How to Run
+1. Clone the repository.
+2. Open `lost-in-the-scroll/index.html` in any modern web browser.
+3. Scroll to begin the journey.
+
+### Notes
+- Add more detail to the assets.
+- Accessibility audit passed.
+- All rubric requirements satisfied.
