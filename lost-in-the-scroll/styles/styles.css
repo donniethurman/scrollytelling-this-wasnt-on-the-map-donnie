@@ -77,11 +77,11 @@ html {
 body {
     margin: 0;
     text-align: center;
-    background-color: var(--dark-green);
+    background-color: var(--bg-color);
     background-size: 100% auto;
     background-position: center top;
     background-repeat: repeat-y;
-    color: var(--text-color-dark);
+    color: var(--text-main);
     font-family: var(--body-font);
     min-height: 100vh;
     overflow-x: hidden;
@@ -119,9 +119,10 @@ section {
 .section-content {
     width: min(50rem, 100%);
     margin-inline: auto;
-    background-color: var(--cream-color);
+    background-color: var(--card-bg);
     padding: var(--body-font-L);
     border-radius: 1rem;
+    color: var(--text-main);
 }
 
 p {
@@ -247,20 +248,20 @@ h1 {
     font-family: var(--header-font);
     font-size: var(--header-font-M);
     margin: 3rem 0 0 0;
-    color: var(--text-color-dark);
+    color: var(--text-main);
 }
 
 h2 {
     font-family: var(--header-font);
     font-size: var(--body-font-L);
     margin: 0;
-    color: var(--cream-color);
+    color: var(--text-accent);
     letter-spacing: 0.05em;
 }
 
 .section-1-content {
     color: var(--cream-color);
-    margin-top: clamp(9rem, 18vh, 14rem);
+    margin-top: clamp(20rem, 35vh, 28rem);
 }
 
 /* section opening */

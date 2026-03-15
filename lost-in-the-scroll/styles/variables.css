@@ -19,12 +19,24 @@
     --header-font-M: clamp(30px, 4vw, 52px);
 }
 
+/* Theme Variables */
+:root {
+    --bg-color: var(--dark-green);
+    --card-bg: var(--cream-color);
+    --text-main: var(--dark-green);
+    --text-accent: var(--cream-color);
+}
+
 .light-mode {
-    --background-color: var(--cream-color);
-    --text-color-light: var(--black-00);
+    --bg-color: var(--cream-color);
+    --card-bg: #ffffff;
+    --text-main: var(--dark-green);
+    --text-accent: var(--dark-green);
 }
 
 .dark-mode {
-    --background-color: var(--dark-green);
-    --text-color-dark: var(--cream-color);
+    --bg-color: var(--dark-green);
+    --card-bg: #353334;
+    --text-main: var(--cream-color);
+    --text-accent: var(--cream-color);
 }
