@@ -141,10 +141,12 @@ p {
 
 .hero-layer-1 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100.5%;
+    height: 100.5%;
+    object-fit: cover;
     z-index: -11;
 }
 
