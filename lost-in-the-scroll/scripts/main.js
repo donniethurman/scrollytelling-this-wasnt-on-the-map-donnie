@@ -93,11 +93,11 @@ function initCampfireShowpiece(reducedMotion) {
 		}
 	});
 
-	// Animate campfire flicker
+	// Animate campfire flicker (Slowed down and softened)
 	gsap.to(".campfire-svg", {
-		scale: 1.1,
-		filter: "drop-shadow(0 0 30px #ffaa00)",
-		duration: 0.1,
+		scale: 1.05,
+		filter: "drop-shadow(0 0 25px #ff8800)",
+		duration: 0.8,
 		repeat: -1,
 		yoyo: true,
 		ease: "sine.inOut"
