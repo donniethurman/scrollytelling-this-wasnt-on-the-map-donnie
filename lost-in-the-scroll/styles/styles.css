@@ -4,6 +4,18 @@
     padding: 0;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 html {
     font-size: 15px;
     min-height: 100%;
@@ -38,6 +50,20 @@ body {
     font-family: var(--body-font);
     min-height: 100vh;
     overflow-x: hidden;
+    scroll-behavior: auto !important; /* Required for ScrollSmoother */
+}
+
+/* Accessibility: Focus States */
+:focus-visible {
+    outline: 3px solid var(--light-orange);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.trail-marker:focus-visible,
+.trail-marker2:focus-visible {
+    outline: 5px solid var(--cream-color);
+    outline-offset: 10px;
 }
 
 main {
@@ -235,6 +261,17 @@ ul {
 .closing-title-text {
     margin-right: -40rem;
     margin-top: -24rem;
+    transition: transform 0.3s ease;
+}
+
+.trail-marker:hover,
+.trail-marker2:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.trail-marker:active,
+.trail-marker2:active {
+    transform: scale(0.95);
 }
 
 /* subheaders */

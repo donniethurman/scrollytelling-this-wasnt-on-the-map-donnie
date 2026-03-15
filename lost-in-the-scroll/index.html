@@ -11,10 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
-  <section class="section-hero" id="hero">
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <header role="banner" class="sr-only"><h1>Lost In The Scroll</h1></header>
+            <main id="main-content">
+  <section class="section-hero" id="hero" aria-labelledby="hero-title">
     <div class="section-1-content">
-      <h1>“Wait...That Wasn’t On The Map!”</h1>
+      <h1 id="hero-title">“Wait...That Wasn’t On The Map!”</h1>
       <p id="hero-description">An interactive scrollytelling story that explains my journey of learning JavaScript, through the lens of a hiker....</p>
     <section class="parallax-scene">
       <img class="hero-layer-1" src="assets/the-blueprint-parallax-01.png" alt="gradient background fading from light blue to cream">
@@ -192,10 +195,10 @@ In JavaScript, this is localStorage. What stays with you after the page reloads.
 
 This is valuable because just like remembering the most efficient route of a hike, JS uses localStorage to remember the important stuff, so next time, your choices are noted. </p>
     </div>
-    <div class="memory-icons-row" aria-label="camp memory items">
-      <img class="memory-row-item" src="assets/log.svg" alt="log">
-      <img class="memory-row-item" src="assets/toilet-paper.svg" alt="toilet paper roll">
-      <img class="memory-row-item" src="assets/tree.svg" alt="tree">
+    <div class="memory-icons-row" aria-label="Memorized trail details: a log, toilet paper, and a tree.">
+      <img class="memory-row-item" src="assets/log.svg" alt="A log on the trail">
+      <img class="memory-row-item" src="assets/toilet-paper.svg" alt="Extra toilet paper">
+      <img class="memory-row-item" src="assets/tree.svg" alt="A tree with ants">
     </div>
     <div class="spacer">  </div>
   </section>
@@ -215,9 +218,12 @@ Once you see it that way, you stop wanting to be comfortable. You start waiting 
 You start designing websites that know how to think. </p>
     </div>
   </section>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-<script src="scripts/main.js" defer></script>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollSmoother.min.js"></script>
+    <script src="scripts/main.js" defer></script>
 </body>
 </html>
