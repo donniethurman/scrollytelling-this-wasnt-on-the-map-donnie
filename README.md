@@ -4,7 +4,7 @@ live site: [https://donniethurman.github.io/scrollytelling-this-wasnt-on-the-map
 
 # Wait! This wasn't on the map! 
 
-### Description: Multiple paragraphs that explain what the project is and how it works, what the main files contain and do, and key design choices and why you made them.  
+### Description:  
   This project is an explanation of my journey of learning JavaScript. It is a scrollytelling interactive story that guides you through a backpacking trail. It starts with a parallax hero section of mountains and the sky, through a set of binoculars. The story then begins at the first trail marker. "Opening" and continues on. Each section is defined by a trail marker that contains the header and the JS concept being referenced. 
   The main files are index.html, styles.css, variable.css, and main.js. Index.html contains the content and images for my site. Styles.css contains the placement and styling of sections. Variables.css contains the varaibles used in syles.css, as well as for light and dark modes.
   The key design choice I made was having the background be a trail. I felt like it went well with the continuous scroll of the scrollytelling story. It was also easy to add elements and SVG's to. 
